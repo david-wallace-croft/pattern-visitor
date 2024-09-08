@@ -1,3 +1,5 @@
+use pattern_visitor::visitor_0;
+
 fn main() {
-    println!("Hello, world!");
+  visitor_0::example();
 }
