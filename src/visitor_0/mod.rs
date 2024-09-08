@@ -10,14 +10,14 @@ use self::value_item::ValueItem;
 use self::visitor_acceptor::VisitorAcceptor;
 
 pub fn example() {
-  let mut item_f64 = Item::<f64> { value: 1. };
-  let mut item_string = Item::<String> { value: "1".to_string() };
-  let mut item_usize = Item::<usize> { value: 1 };
+  let mut item_0 = Item::<usize> { value: 1 };
+  let mut item_1 = Item::<f64> { value: 1. };
+  let mut item_2 = Item::<String> { value: "1".to_string() };
 
   let mut value_items: Vec<&mut dyn ValueItem> = vec![
-    &mut item_usize,
-    &mut item_f64,
-    &mut item_string,
+    &mut item_0,
+    &mut item_1,
+    &mut item_2,
   ];
 
   println!("{value_items:?}");
@@ -27,9 +27,9 @@ pub fn example() {
   println!("{value_items:?}");
 
   let mut visitor_acceptors: Vec<&mut dyn VisitorAcceptor> = vec![
-    &mut item_usize,
-    &mut item_f64,
-    &mut item_string,
+    &mut item_0,
+    &mut item_1,
+    &mut item_2,
   ];
 
   visitor_acceptors.iter_mut().for_each(|visitor_acceptor|
