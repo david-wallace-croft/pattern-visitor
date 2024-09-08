@@ -1,5 +1,5 @@
 use super::visitor::Visitor;
 
-pub trait VisitorAcceptor {
+pub trait VisitorElement {
   fn accept_visitor(&mut self, visitor: &dyn Visitor);
 }

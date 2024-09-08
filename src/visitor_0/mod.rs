@@ -2,12 +2,12 @@ mod item;
 mod visitor;
 mod half_value_visitor;
 mod value_item;
-mod visitor_acceptor;
+mod visitor_element;
 
 use self::half_value_visitor::HalfValueVisitor;
 use self::item::Item;
 use self::value_item::ValueItem;
-use self::visitor_acceptor::VisitorAcceptor;
+use self::visitor_element::VisitorElement;
 use std::fmt::Debug;
 
 pub fn example() {
@@ -31,13 +31,13 @@ pub fn example() {
 
   println!("{debugs:?}");
 
-  let mut visitor_acceptors: Vec<&mut dyn VisitorAcceptor> = vec![
+  let mut visitor_elements: Vec<&mut dyn VisitorElement> = vec![
     &mut item_0,
     &mut item_1,
     &mut item_2,
   ];
 
-  visitor_acceptors.iter_mut().for_each(|visitor_acceptor|
+  visitor_elements.iter_mut().for_each(|visitor_acceptor|
     visitor_acceptor.accept_visitor(&HalfValueVisitor));
 
   let debugs: Vec<&dyn Debug> = vec![&item_0, &item_1, &item_2];

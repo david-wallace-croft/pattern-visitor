@@ -1,6 +1,6 @@
 use super::value_item::ValueItem;
 use super::visitor::Visitor;
-use super::visitor_acceptor::VisitorAcceptor;
+use super::visitor_element::VisitorElement;
 
 #[derive(Debug)]
 pub struct Item<T> {
@@ -25,19 +25,19 @@ impl ValueItem for Item<usize> {
   }
 }
 
-impl VisitorAcceptor for Item<f64> {
+impl VisitorElement for Item<f64> {
   fn accept_visitor(&mut self, visitor: &dyn Visitor) {
     visitor.visit_item_f64(self);
   }
 }
 
-impl VisitorAcceptor for Item<String> {
+impl VisitorElement for Item<String> {
   fn accept_visitor(&mut self, visitor: &dyn Visitor) {
     visitor.visit_item_string(self);
   }
 }
 
-impl VisitorAcceptor for Item<usize> {
+impl VisitorElement for Item<usize> {
   fn accept_visitor(&mut self, visitor: &dyn Visitor) {
     visitor.visit_item_usize(self);
   }
