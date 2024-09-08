@@ -21,11 +21,11 @@ pub fn example() {
 
   elements
     .iter_mut()
-    .for_each(|element| element.translate(1., 0.));
+    .for_each(|element| element.translate(1.5, 0.));
 
   println(&elements);
 
-  let scale_visitor = ScaleVisitor::new(2.);
+  let scale_visitor = ScaleVisitor::new(1.5);
 
   elements
     .iter_mut()

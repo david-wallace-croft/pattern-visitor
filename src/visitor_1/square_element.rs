@@ -66,10 +66,10 @@ impl Element for SquareElement<isize> {
   ) {
     self.center_x = self
       .center_x
-      .saturating_add(offset_x as isize);
+      .saturating_add(offset_x.round_ties_even() as isize);
 
     self.center_y = self
       .center_y
-      .saturating_add(offset_y as isize);
+      .saturating_add(offset_y.round_ties_even() as isize);
   }
 }

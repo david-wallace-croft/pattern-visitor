@@ -26,8 +26,9 @@ impl Visitor for ScaleVisitor {
     &self,
     circle_element: &mut CircleElement<isize>,
   ) {
-    circle_element.radius =
-      ((circle_element.radius as f64) * self.scaling_factor) as isize;
+    circle_element.radius = ((circle_element.radius as f64)
+      * self.scaling_factor)
+      .round_ties_even() as isize;
   }
 
   fn visit_square_element_f64(
@@ -41,7 +42,8 @@ impl Visitor for ScaleVisitor {
     &self,
     square_element: &mut SquareElement<isize>,
   ) {
-    square_element.half_height =
-      ((square_element.half_height as f64) * self.scaling_factor) as isize;
+    square_element.half_height = ((square_element.half_height as f64)
+      * self.scaling_factor)
+      .round_ties_even() as isize;
   }
 }
