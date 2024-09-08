@@ -2,12 +2,12 @@ mod item;
 mod visitor;
 mod half_value_visitor;
 mod value_item;
-mod element;
+mod visitor_acceptor;
 
 use self::half_value_visitor::HalfValueVisitor;
 use self::item::Item;
 use self::value_item::ValueItem;
-use crate::visitor_0::element::Element;
+use self::visitor_acceptor::VisitorAcceptor;
 
 pub fn example() {
   let mut item_f64 = Item::<f64> { value: 1. };
@@ -26,14 +26,14 @@ pub fn example() {
 
   println!("{value_items:?}");
 
-  let mut elements: Vec<&mut dyn Element> = vec![
+  let mut visitor_acceptors: Vec<&mut dyn VisitorAcceptor> = vec![
     &mut item_usize,
     &mut item_f64,
     &mut item_string,
   ];
 
-  elements.iter_mut().for_each(|element|
-    element.accept_visitor(&HalfValueVisitor));
+  visitor_acceptors.iter_mut().for_each(|visitor_acceptor|
+    visitor_acceptor.accept_visitor(&HalfValueVisitor));
 
-  println!("{elements:?}");
+  println!("{visitor_acceptors:?}");
 }
