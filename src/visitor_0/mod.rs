@@ -5,14 +5,13 @@ mod half_value_visitor;
 
 use self::half_value_visitor::HalfValueVisitor;
 use self::item::Item;
-use self::visitor_acceptor::VisitorAcceptor;
 
-const ITEM_0: Item = Item { value: 0 };
-const ITEM_1: Item = Item { value: 1 };
-const ITEM_2: Item = Item { value: 2 };
+const ITEM_0: Item<usize> = Item { value: 0 };
+const ITEM_1: Item<usize> = Item { value: 1 };
+const ITEM_2: Item<usize> = Item { value: 2 };
 
 pub fn example() {
-  let mut items: Vec<Item> = vec![ITEM_0, ITEM_1, ITEM_2];
+  let mut items: Vec<Item<usize>> = vec![ITEM_0, ITEM_1, ITEM_2];
 
   println!("{items:?}");
 
@@ -20,7 +19,9 @@ pub fn example() {
 
   println!("{items:?}");
 
-  items.iter_mut().for_each(|item| item.accept_visitor(&HalfValueVisitor));
+  let half_value_visitor = HalfValueVisitor::<usize>::default();
+
+  items.iter_mut().for_each(|item| item.accept_visitor(&half_value_visitor));
 
   println!("{items:?}");
 }
