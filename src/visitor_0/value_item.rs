@@ -1,5 +1,3 @@
-use std::fmt::Debug;
-
-pub trait ValueItem: Debug {
+pub trait ValueItem {
   fn double_value(&mut self);
 }

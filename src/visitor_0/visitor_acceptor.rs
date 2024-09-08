@@ -1,6 +1,5 @@
 use super::visitor::Visitor;
-use std::fmt::Debug;
 
-pub trait VisitorAcceptor: Debug {
+pub trait VisitorAcceptor {
   fn accept_visitor(&mut self, visitor: &dyn Visitor);
 }
