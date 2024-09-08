@@ -5,7 +5,7 @@
 ## Usage
 
 - cd pattern-visitor/
-- cargo run
+- cargo -q run
 
 ## History
 

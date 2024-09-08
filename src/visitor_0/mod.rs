@@ -1,21 +1,26 @@
 mod item;
 mod visitor;
 mod visitor_acceptor;
+mod half_value_visitor;
 
+use self::half_value_visitor::HalfValueVisitor;
 use self::item::Item;
-use self::visitor::Visitor;
 use self::visitor_acceptor::VisitorAcceptor;
 
-const ITEM_0: Item = Item { health: 0, wealth: 0., wisdom: 0 };
-const ITEM_1: Item = Item { health: 1, wealth: 1., wisdom: 1 };
-const ITEM_2: Item = Item { health: 2, wealth: 2., wisdom: 2 };
+const ITEM_0: Item = Item { value: 0 };
+const ITEM_1: Item = Item { value: 1 };
+const ITEM_2: Item = Item { value: 2 };
 
 pub fn example() {
-  let items: Vec<Item> = vec![ITEM_0, ITEM_1, ITEM_2];
+  let mut items: Vec<Item> = vec![ITEM_0, ITEM_1, ITEM_2];
 
-  items.iter().for_each(|item| println!("item: {item:?}"));
+  println!("{items:?}");
 
-  let visitor = Visitor {};
+  items.iter_mut().for_each(|item| item.double_value());
 
-  items.iter().for_each(|item| item.accept_visitor(&visitor));
+  println!("{items:?}");
+
+  items.iter_mut().for_each(|item| item.accept_visitor(&HalfValueVisitor));
+
+  println!("{items:?}");
 }

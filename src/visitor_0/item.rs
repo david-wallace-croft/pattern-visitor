@@ -3,13 +3,17 @@ use super::visitor_acceptor::VisitorAcceptor;
 
 #[derive(Debug)]
 pub struct Item {
-  pub health: isize,
-  pub wealth: f64,
-  pub wisdom: usize,
+  pub value: usize,
+}
+
+impl Item {
+  pub fn double_value(&mut self) {
+    self.value *= 2;
+  }
 }
 
 impl VisitorAcceptor for Item {
-  fn accept_visitor(&self, visitor: &Visitor) {
+  fn accept_visitor(&mut self, visitor: &dyn Visitor) {
     visitor.visit_item(self)
   }
 }
