@@ -4,31 +4,31 @@ use super::visitor::Visitor;
 pub struct HalfValueVisitor;
 
 impl Visitor for HalfValueVisitor {
-  fn visit_item_f64(
+  fn visit_generic_element_f64(
     &self,
-    generic_element: &mut GenericElement<f64>,
+    element: &mut GenericElement<f64>,
   ) {
-    generic_element.value /= 2.;
+    element.value /= 2.;
   }
 
-  fn visit_item_string(
+  fn visit_generic_element_string(
     &self,
-    generic_element: &mut GenericElement<String>,
+    element: &mut GenericElement<String>,
   ) {
-    let half_length: usize = generic_element
+    let half_length: usize = element
       .value
       .len()
       / 2;
 
-    generic_element
+    element
       .value
       .truncate(half_length);
   }
 
-  fn visit_item_usize(
+  fn visit_generic_element_usize(
     &self,
-    generic_element: &mut GenericElement<usize>,
+    element: &mut GenericElement<usize>,
   ) {
-    generic_element.value /= 2;
+    element.value /= 2;
   }
 }

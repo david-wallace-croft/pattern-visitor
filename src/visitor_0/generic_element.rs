@@ -37,7 +37,7 @@ impl VisitorElement for GenericElement<f64> {
     &mut self,
     visitor: &dyn Visitor,
   ) {
-    visitor.visit_item_f64(self);
+    visitor.visit_generic_element_f64(self);
   }
 }
 
@@ -46,7 +46,7 @@ impl VisitorElement for GenericElement<String> {
     &mut self,
     visitor: &dyn Visitor,
   ) {
-    visitor.visit_item_string(self);
+    visitor.visit_generic_element_string(self);
   }
 }
 
@@ -55,6 +55,6 @@ impl VisitorElement for GenericElement<usize> {
     &mut self,
     visitor: &dyn Visitor,
   ) {
-    visitor.visit_item_usize(self);
+    visitor.visit_generic_element_usize(self);
   }
 }
