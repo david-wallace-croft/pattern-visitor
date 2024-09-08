@@ -1,4 +1,4 @@
-use super::item::Item;
+use super::generic_element::GenericElement;
 use super::visitor::Visitor;
 
 pub struct HalfValueVisitor;
@@ -6,29 +6,29 @@ pub struct HalfValueVisitor;
 impl Visitor for HalfValueVisitor {
   fn visit_item_f64(
     &self,
-    item: &mut Item<f64>,
+    generic_element: &mut GenericElement<f64>,
   ) {
-    item.value /= 2.;
+    generic_element.value /= 2.;
   }
 
   fn visit_item_string(
     &self,
-    item: &mut Item<String>,
+    generic_element: &mut GenericElement<String>,
   ) {
-    let half_length: usize = item
+    let half_length: usize = generic_element
       .value
       .len()
       / 2;
 
-    item
+    generic_element
       .value
       .truncate(half_length);
   }
 
   fn visit_item_usize(
     &self,
-    item: &mut Item<usize>,
+    generic_element: &mut GenericElement<usize>,
   ) {
-    item.value /= 2;
+    generic_element.value /= 2;
   }
 }

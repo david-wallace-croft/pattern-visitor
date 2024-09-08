@@ -4,21 +4,21 @@ use super::visitor::Visitor;
 use super::visitor_element::VisitorElement;
 
 #[derive(Debug)]
-pub struct Item<T> {
+pub struct GenericElement<T> {
   pub value: T,
 }
 
-impl Element for Item<f64> {}
-impl Element for Item<String> {}
-impl Element for Item<usize> {}
+impl Element for GenericElement<f64> {}
+impl Element for GenericElement<String> {}
+impl Element for GenericElement<usize> {}
 
-impl ValueElement for Item<f64> {
+impl ValueElement for GenericElement<f64> {
   fn double_value(&mut self) {
     self.value *= 2.;
   }
 }
 
-impl ValueElement for Item<String> {
+impl ValueElement for GenericElement<String> {
   fn double_value(&mut self) {
     self.value = self
       .value
@@ -26,13 +26,13 @@ impl ValueElement for Item<String> {
   }
 }
 
-impl ValueElement for Item<usize> {
+impl ValueElement for GenericElement<usize> {
   fn double_value(&mut self) {
     self.value *= 2;
   }
 }
 
-impl VisitorElement for Item<f64> {
+impl VisitorElement for GenericElement<f64> {
   fn accept_visitor(
     &mut self,
     visitor: &dyn Visitor,
@@ -41,7 +41,7 @@ impl VisitorElement for Item<f64> {
   }
 }
 
-impl VisitorElement for Item<String> {
+impl VisitorElement for GenericElement<String> {
   fn accept_visitor(
     &mut self,
     visitor: &dyn Visitor,
@@ -50,7 +50,7 @@ impl VisitorElement for Item<String> {
   }
 }
 
-impl VisitorElement for Item<usize> {
+impl VisitorElement for GenericElement<usize> {
   fn accept_visitor(
     &mut self,
     visitor: &dyn Visitor,
