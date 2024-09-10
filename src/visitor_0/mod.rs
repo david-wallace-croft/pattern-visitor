@@ -5,8 +5,9 @@
 //! - Trait Element defines methods common to all of its implementations.
 //!
 //! - The "visitor" module provides the "Visitor" trait and its implementations.
+//! - A Visitor implementation adds functionality to an Element implementation.
 //! - Trait Visitor defines a visit_*_element() method for each Element.
-//! - A Visitor extends Element functionality without modifying the Element.
+//! - The Visitor method is used instead of adding another method to Element.
 //! - The visitor module also provides two adapter traits.
 //!
 //! - Adapter trait "VisitorAcceptor" defines the accept_visitor() method.
