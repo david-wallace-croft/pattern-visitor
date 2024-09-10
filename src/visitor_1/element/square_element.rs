@@ -1,4 +1,3 @@
-use super::super::visitor::Visitor;
 use super::Element;
 use ::std::fmt::{Debug, Display, Formatter, Result};
 
@@ -33,13 +32,6 @@ impl<T: Display> Display for SquareElement<T> {
 }
 
 impl Element for SquareElement<f64> {
-  fn accept_visitor(
-    &mut self,
-    visitor: &dyn Visitor,
-  ) {
-    visitor.visit_square_element_f64(self);
-  }
-
   fn translate(
     &mut self,
     offset_x: f64,
@@ -52,13 +44,6 @@ impl Element for SquareElement<f64> {
 }
 
 impl Element for SquareElement<isize> {
-  fn accept_visitor(
-    &mut self,
-    visitor: &dyn Visitor,
-  ) {
-    visitor.visit_square_element_isize(self);
-  }
-
   fn translate(
     &mut self,
     offset_x: f64,

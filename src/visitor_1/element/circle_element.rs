@@ -1,4 +1,3 @@
-use super::super::visitor::Visitor;
 use super::Element;
 use ::std::fmt::{Debug, Display, Formatter, Result};
 
@@ -29,13 +28,6 @@ impl<T: Display> Display for CircleElement<T> {
 }
 
 impl Element for CircleElement<f64> {
-  fn accept_visitor(
-    &mut self,
-    visitor: &dyn Visitor,
-  ) {
-    visitor.visit_circle_element_f64(self);
-  }
-
   fn translate(
     &mut self,
     offset_x: f64,
@@ -48,13 +40,6 @@ impl Element for CircleElement<f64> {
 }
 
 impl Element for CircleElement<isize> {
-  fn accept_visitor(
-    &mut self,
-    visitor: &dyn Visitor,
-  ) {
-    visitor.visit_circle_element_isize(self);
-  }
-
   fn translate(
     &mut self,
     offset_x: f64,
