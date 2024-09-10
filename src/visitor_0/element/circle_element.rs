@@ -1,9 +1,9 @@
-use crate::visitor_0::element::Element;
-use crate::visitor_0::visitor::Visitor;
+use super::Element;
 use std::fmt::{Debug, Display, Formatter, Result};
 
 #[derive(Debug, Default)]
 pub struct CircleElement {
+  // Fields are public to provide access to the Visitor implementations
   pub center_x: f64,
   pub center_y: f64,
   pub radius: f64,
@@ -29,13 +29,6 @@ impl Display for CircleElement {
 }
 
 impl Element for CircleElement {
-  fn accept_visitor(
-    &mut self,
-    visitor: &dyn Visitor,
-  ) {
-    visitor.visit_circle_element(self);
-  }
-
   fn translate(
     &mut self,
     offset_x: f64,

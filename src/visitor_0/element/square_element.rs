@@ -1,9 +1,9 @@
-use crate::visitor_0::element::Element;
-use crate::visitor_0::visitor::Visitor;
+use super::Element;
 use std::fmt::{Debug, Display, Formatter};
 
 #[derive(Debug, Default)]
 pub struct SquareElement {
+  // Fields are public to provide access to the Visitor implementations
   pub center_x: f64,
   pub center_y: f64,
   pub half_height: f64,
@@ -33,13 +33,6 @@ impl Display for SquareElement {
 }
 
 impl Element for SquareElement {
-  fn accept_visitor(
-    &mut self,
-    visitor: &dyn Visitor,
-  ) {
-    visitor.visit_square_element(self);
-  }
-
   fn translate(
     &mut self,
     offset_x: f64,
