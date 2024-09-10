@@ -1,13 +1,10 @@
-mod circle_element;
-mod element;
-mod scale_visitor;
-mod square_element;
-mod visitor;
-
-use self::circle_element::CircleElement;
+use self::element::circle_element::CircleElement;
+use self::element::square_element::SquareElement;
 use self::element::Element;
-use self::scale_visitor::ScaleVisitor;
-use self::square_element::SquareElement;
+use self::visitor::scale_visitor::ScaleVisitor;
+
+mod element;
+mod visitor;
 
 pub fn example() {
   let mut elements: Vec<Box<dyn Element>> = vec![

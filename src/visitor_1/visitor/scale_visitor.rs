@@ -1,6 +1,6 @@
-use super::circle_element::CircleElement;
-use super::square_element::SquareElement;
-use super::visitor::Visitor;
+use super::super::element::circle_element::CircleElement;
+use super::super::element::square_element::SquareElement;
+use super::Visitor;
 
 pub struct ScaleVisitor {
   scaling_factor: f64,

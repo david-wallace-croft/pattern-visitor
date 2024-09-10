@@ -1,6 +1,6 @@
-use super::element::Element;
-use super::visitor::Visitor;
-use std::fmt::{Debug, Display, Formatter, Result};
+use super::super::visitor::Visitor;
+use super::Element;
+use ::std::fmt::{Debug, Display, Formatter, Result};
 
 #[derive(Debug, Default)]
 pub struct CircleElement<T> {
