@@ -1,7 +1,7 @@
 use super::super::super::original::element::circle_element::CircleElement;
 use super::super::super::original::element::square_element::SquareElement;
 use super::super::element::hexagon_element::HexagonElement;
-use super::visitor::Visitor;
+use super::Visitor;
 
 pub trait VisitorAcceptor {
   fn accept_visitor(

@@ -66,7 +66,7 @@ pub fn example() {
   println(&visitor_elements);
 }
 
-fn println(visitor_elements: &Vec<Box<dyn VisitorElement>>) {
+fn println(visitor_elements: &[Box<dyn VisitorElement>]) {
   visitor_elements
     .iter()
     .for_each(|visitor_element| print!("{visitor_element} "));
