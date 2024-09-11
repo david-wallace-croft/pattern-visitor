@@ -1,36 +1,11 @@
-mod extension;
+use self::original::example_original;
+use self::supplemented::example_supplemented;
+
 mod original;
+mod supplemented;
 
 pub fn example() {
-  // TODO
+  example_original();
 
-  // let mut elements: Vec<Box<dyn Element>> = vec![
-  //   Box::new(CircleElement::new(1.)),
-  //   Box::new(SquareElement::new(1.)),
-  //   Box::new(HexagonElement::new(1.)),
-  // ];
-  //
-  // println(&elements);
-  //
-  // elements
-  //   .iter_mut()
-  //   .for_each(|element| element.translate(1., 0.));
-  //
-  // println(&elements);
-  //
-  // let scale_extended_visitor = ScaleExtendedVisitor::new(2.);
-  //
-  // elements
-  //   .iter_mut()
-  //   .for_each(|element| element.accept_visitor(&scale_extended_visitor));
-  //
-  // println(&elements);
+  example_supplemented();
 }
-
-// fn println(elements: &Vec<Box<dyn Element>>) {
-//   elements
-//     .iter()
-//     .for_each(|element| print!("{element} "));
-//
-//   println!();
-// }

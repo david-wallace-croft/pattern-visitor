@@ -3,7 +3,7 @@ use super::super::element::square_element::SquareElement;
 use super::super::visitor::Visitor;
 
 pub struct ScaleVisitor {
-  scaling_factor: f64,
+  pub scaling_factor: f64,
 }
 
 impl ScaleVisitor {

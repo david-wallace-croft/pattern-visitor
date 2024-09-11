@@ -1,15 +1,17 @@
 pub mod element;
 pub mod visitor;
 
-use self::element::circle_element::CircleElement;
-use self::element::square_element::SquareElement;
-use self::visitor::scale_visitor::ScaleVisitor;
+use self::element::hexagon_element::HexagonElement;
 use self::visitor::visitor_element::VisitorElement;
+use super::original::element::circle_element::CircleElement;
+use super::original::element::square_element::SquareElement;
+use super::original::visitor::scale_visitor::ScaleVisitor;
 
-pub fn example_original() {
+pub fn example_supplemented() {
   let mut visitor_elements: Vec<Box<dyn VisitorElement>> = vec![
     Box::new(CircleElement::new(1.)),
     Box::new(SquareElement::new(1.)),
+    Box::new(HexagonElement::new(1.)),
   ];
 
   println(&visitor_elements);

@@ -3,6 +3,7 @@ use super::element::square_element::SquareElement;
 
 pub mod scale_visitor;
 pub mod visitor_acceptor;
+pub mod visitor_element;
 
 pub trait Visitor {
   fn visit_circle_element(
