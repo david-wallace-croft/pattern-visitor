@@ -1,4 +1,4 @@
-use pattern_visitor::{visitor_0, visitor_1, visitor_2};
+use pattern_visitor::{visitor_0, visitor_1, visitor_2, visitor_3};
 
 fn main() {
   visitor_0::example();
@@ -6,4 +6,6 @@ fn main() {
   visitor_1::example();
 
   visitor_2::example();
+
+  visitor_3::example();
 }
