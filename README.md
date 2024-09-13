@@ -15,6 +15,8 @@
   - Demonstrates expanding the supported Element types using a generic
 - visitor-2
   - Demonstrates how to extend a Visitor to visit a new external Element
+- visitor-3
+  - TODO: still working on this one
 
 ## History
 
