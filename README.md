@@ -16,7 +16,7 @@
 - visitor-2
   - Demonstrates how to extend a Visitor to visit a new external Element
 - visitor-3
-  - TODO: still working on this one
+  - Compares the Visitor pattern to using Mixin
 
 ## History
 

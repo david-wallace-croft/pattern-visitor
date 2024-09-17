@@ -8,4 +8,6 @@ fn main() {
   visitor_2::example();
 
   visitor_3::example();
+
+  visitor_3::example();
 }
