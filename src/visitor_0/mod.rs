@@ -49,6 +49,8 @@ pub fn example() {
     Box::new(SquareElement::new(1.)),
   ];
 
+  println!("=== visitor_0 ===");
+
   println(&visitor_elements);
 
   visitor_elements

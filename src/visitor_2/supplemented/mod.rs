@@ -14,6 +14,8 @@ pub fn example_supplemented() {
     Box::new(HexagonElement::new(1.)),
   ];
 
+  println!("=== visitor_2 supplemented ===");
+
   println(&visitor_elements);
 
   visitor_elements

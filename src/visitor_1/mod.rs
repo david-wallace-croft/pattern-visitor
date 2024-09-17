@@ -14,6 +14,8 @@ pub fn example() {
     Box::new(SquareElement::<isize>::new(1)),
   ];
 
+  println!("=== visitor_1 ===");
+
   println(&visitor_elements);
 
   visitor_elements

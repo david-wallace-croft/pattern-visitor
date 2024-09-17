@@ -33,6 +33,8 @@ fn example_mixin() {
     Box::new(SquareElement::new(1.)),
   ];
 
+  println!("=== visitor_3 mixin ===");
+
   println_mixin_elements(&mixin_elements);
 
   mixin_elements
@@ -53,6 +55,8 @@ fn example_visitor() {
     Box::new(CircleElement::new(1.)),
     Box::new(SquareElement::new(1.)),
   ];
+
+  println!("=== visitor_3 visitor ===");
 
   println_visitor_elements(&visitor_elements);
 
