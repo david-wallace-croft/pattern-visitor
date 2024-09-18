@@ -1,45 +1,49 @@
 use super::super::element::circle_element::CircleElement;
+use super::super::element::point_element::PointElement;
 use super::super::element::square_element::SquareElement;
+use super::visitor_element::VisitorElement;
 use super::Visitor;
-use crate::visitor_4::visitor::visitor_element::VisitorElement;
-use std::cell::RefCell;
-use std::rc::Rc;
+use ::std::cell::RefCell;
+use ::std::collections::VecDeque;
+use ::std::rc::Rc;
 
-pub struct ClusterVisitor<'a> {
-  visitor_elements: &'a Vec<Rc<RefCell<dyn VisitorElement>>>,
+pub struct ClusterVisitor {
+  visitor_elements: Rc<RefCell<VecDeque<Box<dyn VisitorElement>>>>,
 }
 
-impl<'a> ClusterVisitor<'a> {
+impl ClusterVisitor {
   pub fn new(
-    visitor_elements: &'a Vec<Rc<RefCell<dyn VisitorElement>>>
+    visitor_elements: Rc<RefCell<VecDeque<Box<dyn VisitorElement>>>>
   ) -> Self {
     Self {
       visitor_elements,
     }
   }
 
-  pub fn average_center_x(&self) -> f64 {
+  fn average_center_x(&self) -> f64 {
     let sum_x: f64 = self
       .visitor_elements
+      .borrow()
       .iter()
-      .map(|visitor_element| visitor_element.borrow().get_center_x())
+      .map(|visitor_element| visitor_element.get_center_x())
       .sum();
 
-    sum_x / (self.visitor_elements.len() as f64)
+    sum_x / (self.visitor_elements.borrow().len() as f64)
   }
 
-  pub fn average_center_y(&self) -> f64 {
+  fn average_center_y(&self) -> f64 {
     let sum_y: f64 = self
       .visitor_elements
+      .borrow()
       .iter()
-      .map(|visitor_element| visitor_element.borrow().get_center_y())
+      .map(|visitor_element| visitor_element.get_center_y())
       .sum();
 
-    sum_y / (self.visitor_elements.len() as f64)
+    sum_y / (self.visitor_elements.borrow().len() as f64)
   }
 }
 
-impl Visitor for ClusterVisitor<'_> {
+impl Visitor for ClusterVisitor {
   fn visit_circle_element(
     &self,
     circle_element: &mut CircleElement,
@@ -47,6 +51,15 @@ impl Visitor for ClusterVisitor<'_> {
     circle_element.center_x = self.average_center_x();
 
     circle_element.center_y = self.average_center_y();
+  }
+
+  fn visit_point_element(
+    &self,
+    point_element: &mut PointElement,
+  ) {
+    point_element.center_x = self.average_center_x();
+
+    point_element.center_y = self.average_center_y();
   }
 
   fn visit_square_element(
