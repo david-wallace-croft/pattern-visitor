@@ -9,14 +9,16 @@
 
 ## Examples
 
-- visitor-0
+- visitor_0
   - Demonstrates using a Visitor to add functionality to an Element
-- visitor-1
+- visitor_1
   - Demonstrates expanding the supported Element types using a generic
-- visitor-2
+- visitor_2
   - Demonstrates how to extend a Visitor to visit a new external Element
-- visitor-3
+- visitor_3
   - Compares the Visitor pattern to using Mixin
+- visitor_4
+  - A Visitor which mutates an Element using values from the other Elements
 
 ## History
 
