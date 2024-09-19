@@ -19,6 +19,8 @@
   - Compares the Visitor pattern to using Mixin
 - visitor_4
   - A Visitor which mutates an Element using values from the other Elements
+- visitor_5
+  - A Visitor which mutates an Element using values from the other Elements
 
 ## History
 
