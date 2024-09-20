@@ -5,7 +5,7 @@
 //! - Author: [`David Wallace Croft`]
 //! - Copyright: &copy; 2024 [`CroftSoft Inc`]
 //! - Created: 2024-09-18
-//! - Updated: 2024-09-18
+//! - Updated: 2024-09-19
 //!
 //! [`CroftSoft Inc`]: https://www.croftsoft.com/
 //! [`David Wallace Croft`]: https://www.croftsoft.com/people/david/
@@ -17,8 +17,8 @@ mod visitor;
 use self::element::circle_element::CircleElement;
 use self::element::point_element::PointElement;
 use self::element::square_element::SquareElement;
+use self::visitor::cluster_visitor::ClusterVisitor;
 use self::visitor::visitor_element::VisitorElement;
-use crate::visitor_5::visitor::cluster_visitor::ClusterVisitor;
 use std::ops::IndexMut;
 
 pub fn example() {
