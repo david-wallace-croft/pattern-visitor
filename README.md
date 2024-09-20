@@ -21,6 +21,8 @@
   - A Visitor which mutates an Element using values from the other Elements
 - visitor_5
   - A Visitor which mutates an Element using values from the other Elements
+- visitor_6
+  - TODO: In progress
 
 ## History
 
