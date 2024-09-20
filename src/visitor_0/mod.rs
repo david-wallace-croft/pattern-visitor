@@ -29,7 +29,7 @@
 //! - Author: [`David Wallace Croft`]
 //! - Copyright: &copy; 2024 [`CroftSoft Inc`]
 //! - Created: 2024-09-08
-//! - Updated: 2024-09-09
+//! - Updated: 2024-09-20
 //!
 //! [`CroftSoft Inc`]: https://www.croftsoft.com/
 //! [`David Wallace Croft`]: https://www.croftsoft.com/people/david/
@@ -39,6 +39,7 @@ mod element;
 mod visitor;
 
 use self::element::circle_element::CircleElement;
+use self::element::point_element::PointElement;
 use self::element::square_element::SquareElement;
 use self::visitor::scale_visitor::ScaleVisitor;
 use self::visitor::visitor_element::VisitorElement;
@@ -46,7 +47,7 @@ use self::visitor::visitor_element::VisitorElement;
 pub fn example() {
   let mut visitor_elements: Vec<Box<dyn VisitorElement>> = vec![
     Box::new(CircleElement::new(1.)),
-    // TODO: add PointElement
+    Box::new(PointElement::default()),
     Box::new(SquareElement::new(1.)),
   ];
 

@@ -1,7 +1,7 @@
 use super::Element;
 use std::fmt::{Debug, Display, Formatter};
 
-#[derive(Debug, Default)]
+#[derive(Debug)]
 pub struct SquareElement {
   // Fields are public to provide access to the Visitor implementations
   pub center_x: f64,
