@@ -24,7 +24,7 @@ impl ClusterVisitor {
     &self,
     id: usize,
   ) -> Option<(f64, f64)> {
-    let length: f64 = self.visitor_elements.borrow().len() as f64;
+    let count: f64 = (self.visitor_elements.borrow().len() - 1) as f64;
 
     self
       .visitor_elements
@@ -38,7 +38,7 @@ impl ClusterVisitor {
         )
       })
       .reduce(|(sum_x, sum_y), (x, y)| (sum_x + x, sum_y + y))
-      .map(|(sum_x, sum_y)| (sum_x / length, sum_y / length))
+      .map(|(sum_x, sum_y)| (sum_x / count, sum_y / count))
   }
 }
 
