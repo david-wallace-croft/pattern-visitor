@@ -4,9 +4,9 @@ use std::fmt::{Debug, Display, Formatter};
 
 #[derive(Debug, Default)]
 pub struct SquareElement {
-  // Fields are public to provide access to the Visitor implementations
-  pub center_x: Cell<f64>,
-  pub center_y: Cell<f64>,
+  center_x: Cell<f64>,
+  center_y: Cell<f64>,
+  // Some fields are public to provide access to the Visitor implementations
   pub half_height: f64,
   id: usize,
 }

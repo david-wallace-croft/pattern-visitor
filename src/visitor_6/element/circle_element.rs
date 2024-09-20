@@ -4,10 +4,10 @@ use std::fmt::{Debug, Display, Formatter, Result};
 
 #[derive(Debug, Default)]
 pub struct CircleElement {
-  // Fields are public to provide access to the Visitor implementations
-  pub center_x: Cell<f64>,
-  pub center_y: Cell<f64>,
+  center_x: Cell<f64>,
+  center_y: Cell<f64>,
   id: usize,
+  // Some fields are public to provide access to the Visitor implementations
   pub radius: f64,
 }
 
