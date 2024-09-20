@@ -46,6 +46,7 @@ use self::visitor::visitor_element::VisitorElement;
 pub fn example() {
   let mut visitor_elements: Vec<Box<dyn VisitorElement>> = vec![
     Box::new(CircleElement::new(1.)),
+    // TODO: add PointElement
     Box::new(SquareElement::new(1.)),
   ];
 
