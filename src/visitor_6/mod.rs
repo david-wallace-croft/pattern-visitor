@@ -17,10 +17,10 @@ mod visitor;
 use self::element::circle_element::CircleElement;
 use self::element::point_element::PointElement;
 use self::element::square_element::SquareElement;
+use self::visitor::cluster_visitor::ClusterVisitor;
 use self::visitor::visitor_element::VisitorElement;
-use crate::visitor_6::visitor::cluster_visitor::ClusterVisitor;
-use std::cell::RefCell;
-use std::rc::Rc;
+use ::std::cell::RefCell;
+use ::std::rc::Rc;
 
 pub fn example() {
   println!("=== visitor_6 ===");

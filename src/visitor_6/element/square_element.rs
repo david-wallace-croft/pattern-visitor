@@ -1,6 +1,6 @@
 use super::Element;
-use std::cell::Cell;
-use std::fmt::{Debug, Display, Formatter};
+use ::std::cell::Cell;
+use ::std::fmt::{Debug, Display, Formatter};
 
 #[derive(Debug, Default)]
 pub struct SquareElement {

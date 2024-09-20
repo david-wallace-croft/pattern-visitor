@@ -11,7 +11,7 @@
 //! [`David Wallace Croft`]: https://www.croftsoft.com/people/david/
 //==============================================================================
 
-use std::fmt::Display;
+use ::std::fmt::Display;
 
 // Element implementation modules are public
 pub mod circle_element;

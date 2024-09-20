@@ -4,8 +4,8 @@ use super::super::element::square_element::SquareElement;
 use super::visitor_element::VisitorElement;
 use super::Visitor;
 use crate::visitor_6::element::Element;
-use std::cell::RefCell;
-use std::rc::Rc;
+use ::std::cell::RefCell;
+use ::std::rc::Rc;
 
 pub struct ClusterVisitor {
   visitor_elements: Rc<RefCell<Vec<Box<dyn VisitorElement>>>>,

@@ -1,6 +1,6 @@
 use super::Element;
-use std::cell::Cell;
-use std::fmt::{Debug, Display, Formatter, Result};
+use ::std::cell::Cell;
+use ::std::fmt::{Debug, Display, Formatter, Result};
 
 #[derive(Debug, Default)]
 pub struct CircleElement {
