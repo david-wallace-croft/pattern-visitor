@@ -1,6 +1,7 @@
 use ::std::fmt::Display;
 
 pub mod circle_element;
+pub mod point_element;
 pub mod square_element;
 
 pub trait Element: Display {

@@ -1,4 +1,5 @@
 use self::element::circle_element::CircleElement;
+use self::element::point_element::PointElement;
 use self::element::square_element::SquareElement;
 use self::visitor::scale_visitor::ScaleVisitor;
 use self::visitor::visitor_element::VisitorElement;
@@ -9,8 +10,10 @@ mod visitor;
 pub fn example() {
   let mut visitor_elements: Vec<Box<dyn VisitorElement>> = vec![
     Box::new(CircleElement::<f64>::new(1.)),
+    Box::new(PointElement::<f64>::default()),
     Box::new(SquareElement::<f64>::new(1.)),
     Box::new(CircleElement::<isize>::new(1)),
+    Box::new(PointElement::<isize>::default()),
     Box::new(SquareElement::<isize>::new(1)),
   ];
 
