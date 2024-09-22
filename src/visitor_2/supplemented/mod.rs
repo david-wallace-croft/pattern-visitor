@@ -4,14 +4,16 @@ pub mod visitor;
 use self::element::hexagon_element::HexagonElement;
 use self::visitor::visitor_element::VisitorElement;
 use super::original::element::circle_element::CircleElement;
+use super::original::element::point_element::PointElement;
 use super::original::element::square_element::SquareElement;
 use super::original::visitor::scale_visitor::ScaleVisitor;
 
 pub fn example_supplemented() {
   let mut visitor_elements: Vec<Box<dyn VisitorElement>> = vec![
     Box::new(CircleElement::new(1.)),
-    Box::new(SquareElement::new(1.)),
     Box::new(HexagonElement::new(1.)),
+    Box::new(PointElement::default()),
+    Box::new(SquareElement::new(1.)),
   ];
 
   println!("=== visitor_2 supplemented ===");

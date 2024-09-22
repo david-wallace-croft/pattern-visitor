@@ -25,7 +25,7 @@ impl Display for HexagonElement {
   ) -> std::fmt::Result {
     write!(
       f,
-      "S({} {} {})",
+      "H({} {} {})",
       self.center_x, self.center_y, self.circumcircle_radius
     )
   }
