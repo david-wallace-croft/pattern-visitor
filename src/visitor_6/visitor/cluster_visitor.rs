@@ -12,21 +12,15 @@ pub struct ClusterVisitor {
 }
 
 impl ClusterVisitor {
-  pub fn new(
-    visitor_elements: Rc<RefCell<Vec<Box<dyn VisitorElement>>>>
-  ) -> Self {
-    Self {
-      visitor_elements,
-    }
-  }
-
-  fn average_center(
+  fn cluster(
     &self,
-    id: usize,
-  ) -> Option<(f64, f64)> {
+    element: &dyn Element,
+  ) {
+    let id: usize = element.get_id();
+
     let count: f64 = (self.visitor_elements.borrow().len() - 1) as f64;
 
-    self
+    let average_center_option = self
       .visitor_elements
       .borrow()
       .iter()
@@ -38,7 +32,21 @@ impl ClusterVisitor {
         )
       })
       .reduce(|(sum_x, sum_y), (x, y)| (sum_x + x, sum_y + y))
-      .map(|(sum_x, sum_y)| (sum_x / count, sum_y / count))
+      .map(|(sum_x, sum_y)| (sum_x / count, sum_y / count));
+
+    if let Some((average_x, average_y)) = average_center_option {
+      element.set_center_x(average_x);
+
+      element.set_center_y(average_y);
+    }
+  }
+
+  pub fn new(
+    visitor_elements: Rc<RefCell<Vec<Box<dyn VisitorElement>>>>
+  ) -> Self {
+    Self {
+      visitor_elements,
+    }
   }
 }
 
@@ -47,38 +55,20 @@ impl Visitor for ClusterVisitor {
     &self,
     circle_element: &CircleElement,
   ) {
-    let id: usize = circle_element.get_id();
-
-    if let Some((average_x, average_y)) = self.average_center(id) {
-      circle_element.set_center_x(average_x);
-
-      circle_element.set_center_y(average_y);
-    }
+    self.cluster(circle_element);
   }
 
   fn visit_point_element(
     &self,
     point_element: &PointElement,
   ) {
-    let id: usize = point_element.get_id();
-
-    if let Some((average_x, average_y)) = self.average_center(id) {
-      point_element.set_center_x(average_x);
-
-      point_element.set_center_y(average_y);
-    }
+    self.cluster(point_element);
   }
 
   fn visit_square_element(
     &self,
     square_element: &SquareElement,
   ) {
-    let id: usize = square_element.get_id();
-
-    if let Some((average_x, average_y)) = self.average_center(id) {
-      square_element.set_center_x(average_x);
-
-      square_element.set_center_y(average_y);
-    }
+    self.cluster(square_element);
   }
 }
