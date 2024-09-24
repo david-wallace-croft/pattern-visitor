@@ -16,6 +16,7 @@ mod mixin;
 mod visitor;
 
 use self::element::circle_element::CircleElement;
+use self::element::point_element::PointElement;
 use self::element::square_element::SquareElement;
 use self::visitor::scale_visitor::ScaleVisitor;
 use self::visitor::visitor_element::VisitorElement;
@@ -30,6 +31,7 @@ pub fn example() {
 fn example_mixin() {
   let mut mixin_elements: Vec<Box<dyn MixinElement>> = vec![
     Box::new(CircleElement::new(1.)),
+    Box::new(PointElement::default()),
     Box::new(SquareElement::new(1.)),
   ];
 
@@ -53,6 +55,7 @@ fn example_mixin() {
 fn example_visitor() {
   let mut visitor_elements: Vec<Box<dyn VisitorElement>> = vec![
     Box::new(CircleElement::new(1.)),
+    Box::new(PointElement::default()),
     Box::new(SquareElement::new(1.)),
   ];
 

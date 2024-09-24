@@ -1,4 +1,5 @@
 use super::super::element::circle_element::CircleElement;
+use super::super::element::point_element::PointElement;
 use super::super::element::square_element::SquareElement;
 use super::Visitor;
 
@@ -20,6 +21,13 @@ impl Visitor for ScaleVisitor {
     circle_element: &mut CircleElement,
   ) {
     circle_element.radius *= self.scaling_factor;
+  }
+
+  fn visit_point_element(
+    &self,
+    _point_element: &mut PointElement,
+  ) {
+    // Calling ScaleVisitor on a PointElement is pointless ;)
   }
 
   fn visit_square_element(
