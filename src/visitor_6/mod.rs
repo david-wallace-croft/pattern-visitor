@@ -11,6 +11,8 @@
 //! [`David Wallace Croft`]: https://www.croftsoft.com/people/david/
 //==============================================================================
 
+#![expect(dead_code)]
+
 mod element;
 mod visitor;
 

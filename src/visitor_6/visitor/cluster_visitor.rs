@@ -1,9 +1,9 @@
 use super::super::element::circle_element::CircleElement;
+use super::super::element::element_accessor::ElementAccessor;
 use super::super::element::point_element::PointElement;
 use super::super::element::square_element::SquareElement;
 use super::visitor_element::VisitorElement;
 use super::Visitor;
-use crate::visitor_6::element::Element;
 use ::std::cell::RefCell;
 use ::std::rc::Rc;
 
@@ -12,33 +12,28 @@ pub struct ClusterVisitor {
 }
 
 impl ClusterVisitor {
-  fn cluster(
+  pub fn average_center(
     &self,
-    element: &dyn Element,
-  ) {
-    let id: usize = element.get_id();
+    excluded_element_accessor: &dyn ElementAccessor,
+  ) -> Option<(f64, f64)> {
+    let excluded_id: usize = excluded_element_accessor.get_id();
 
-    let count: f64 = (self.visitor_elements.borrow().len() - 1) as f64;
-
-    let average_center_option = self
+    self
       .visitor_elements
       .borrow()
       .iter()
-      .filter(|visitor_element| visitor_element.get_id() != id)
+      .filter(|visitor_element| visitor_element.get_id() != excluded_id)
       .map(|visitor_element| {
         (
           visitor_element.get_center_x(),
           visitor_element.get_center_y(),
+          1,
         )
       })
-      .reduce(|(sum_x, sum_y), (x, y)| (sum_x + x, sum_y + y))
-      .map(|(sum_x, sum_y)| (sum_x / count, sum_y / count));
-
-    if let Some((average_x, average_y)) = average_center_option {
-      element.set_center_x(average_x);
-
-      element.set_center_y(average_y);
-    }
+      .reduce(|(sum_x, sum_y, count), (x, y, _)| {
+        (sum_x + x, sum_y + y, count + 1)
+      })
+      .map(|(sum_x, sum_y, count)| (sum_x / count as f64, sum_y / count as f64))
   }
 
   pub fn new(
@@ -55,20 +50,41 @@ impl Visitor for ClusterVisitor {
     &self,
     circle_element: &CircleElement,
   ) {
-    self.cluster(circle_element);
+    let average_center_option: Option<(f64, f64)> =
+      self.average_center(circle_element);
+
+    if let Some((average_center_x, average_center_y)) = average_center_option {
+      circle_element.set_center_x(average_center_x);
+
+      circle_element.set_center_y(average_center_y);
+    }
   }
 
   fn visit_point_element(
     &self,
     point_element: &PointElement,
   ) {
-    self.cluster(point_element);
+    let average_center_option: Option<(f64, f64)> =
+      self.average_center(point_element);
+
+    if let Some((average_center_x, average_center_y)) = average_center_option {
+      point_element.set_x(average_center_x);
+
+      point_element.set_y(average_center_y);
+    }
   }
 
   fn visit_square_element(
     &self,
     square_element: &SquareElement,
   ) {
-    self.cluster(square_element);
+    let average_center_option: Option<(f64, f64)> =
+      self.average_center(square_element);
+
+    if let Some((average_center_x, average_center_y)) = average_center_option {
+      square_element.set_center_x(average_center_x);
+
+      square_element.set_center_y(average_center_y);
+    }
   }
 }

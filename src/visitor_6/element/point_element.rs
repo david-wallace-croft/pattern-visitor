@@ -1,22 +1,37 @@
+use super::element_accessor::ElementAccessor;
 use super::Element;
 use ::std::cell::Cell;
-use ::std::fmt::{Debug, Display, Formatter};
+use ::std::fmt::{Debug, Display, Formatter, Result};
 
 #[derive(Debug, Default)]
 pub struct PointElement {
-  // All fields are private
+  // All fields are private; some use interior mutability
+  id: usize,
   x: Cell<f64>,
   y: Cell<f64>,
-  id: usize,
 }
 
 impl PointElement {
   pub fn new(id: usize) -> Self {
     Self {
+      id,
       x: Cell::new(0.),
       y: Cell::new(0.),
-      id,
     }
+  }
+
+  pub fn set_x(
+    &self,
+    x: f64,
+  ) {
+    self.x.set(x);
+  }
+
+  pub fn set_y(
+    &self,
+    y: f64,
+  ) {
+    self.y.set(y);
   }
 }
 
@@ -24,12 +39,24 @@ impl Display for PointElement {
   fn fmt(
     &self,
     f: &mut Formatter<'_>,
-  ) -> std::fmt::Result {
+  ) -> Result {
     write!(f, "P({} {})", self.x.get(), self.y.get())
   }
 }
 
 impl Element for PointElement {
+  fn translate(
+    &self,
+    offset_x: f64,
+    offset_y: f64,
+  ) {
+    self.set_x(self.x.get() + offset_x);
+
+    self.set_y(self.y.get() + offset_y);
+  }
+}
+
+impl ElementAccessor for PointElement {
   fn get_center_x(&self) -> f64 {
     self.x.get()
   }
@@ -40,29 +67,5 @@ impl Element for PointElement {
 
   fn get_id(&self) -> usize {
     self.id
-  }
-
-  fn set_center_x(
-    &self,
-    center_x: f64,
-  ) {
-    self.x.set(center_x);
-  }
-
-  fn set_center_y(
-    &self,
-    center_y: f64,
-  ) {
-    self.y.set(center_y);
-  }
-
-  fn translate(
-    &self,
-    offset_x: f64,
-    offset_y: f64,
-  ) {
-    self.set_center_x(self.get_center_x() + offset_x);
-
-    self.set_center_y(self.get_center_y() + offset_y);
   }
 }
