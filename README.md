@@ -19,10 +19,13 @@
   - Compares the Visitor pattern to using Mixin
 - visitor_4
   - A Visitor which mutates an Element using values from the other Elements
+  - Removes an Element from a shared reference to Elements during mutation
 - visitor_5
   - A Visitor which mutates an Element using values from the other Elements
+  - Accesses the data from Elements before mutating the Element
 - visitor_6
   - A Visitor which mutates an Element using values from the other Elements
+  - Uses interior mutability for each Element in a shared reference to Elements
 
 ## History
 
