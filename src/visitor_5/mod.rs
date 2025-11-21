@@ -39,7 +39,7 @@ pub fn example() {
 
   println(&visitor_elements);
 
-  let length = visitor_elements.len();
+  let length: usize = visitor_elements.len();
 
   for index in 0..length {
     let cluster_visitor = ClusterVisitor::new(index, &visitor_elements);

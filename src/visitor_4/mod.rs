@@ -3,9 +3,9 @@
 //!
 //! # Metadata
 //! - Author: [`David Wallace Croft`]
-//! - Copyright: &copy; 2024 [`CroftSoft Inc`]
+//! - Copyright: &copy; 2024-2025 [`CroftSoft Inc`]
 //! - Created: 2024-09-17
-//! - Updated: 2024-09-17
+//! - Updated: 2025-11-20
 //!
 //! [`CroftSoft Inc`]: https://www.croftsoft.com/
 //! [`David Wallace Croft`]: https://www.croftsoft.com/people/david/
@@ -51,9 +51,10 @@ pub fn example() {
 
   println(&visitor_elements);
 
-  let average_visitor = ClusterVisitor::new(visitor_elements.clone());
+  let average_visitor: ClusterVisitor =
+    ClusterVisitor::new(visitor_elements.clone());
 
-  let length = visitor_elements.borrow().len();
+  let length: usize = visitor_elements.borrow().len();
 
   for _ in 0..length {
     let visitor_element_option: Option<Box<dyn VisitorElement>> =

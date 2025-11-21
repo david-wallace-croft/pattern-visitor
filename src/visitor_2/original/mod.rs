@@ -24,7 +24,7 @@ pub fn example_original() {
 
   println(&visitor_elements);
 
-  let scale_visitor = ScaleVisitor::new(2.);
+  let scale_visitor: ScaleVisitor = ScaleVisitor::new(2.);
 
   visitor_elements
     .iter_mut()
