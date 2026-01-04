@@ -1,10 +1,12 @@
 # Pattern Visitor
 
 [![MIT licensed][mit-badge]][mit-url]
+[![Rust][status-badge]][status-url]
 
 [mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
-
 [mit-url]: https://github.com/david-wallace-croft/pattern-visitor/blob/main/LICENSE.txt
+[status-badge]: https://github.com/david-wallace-croft/pattern-visitor/actions/workflows/rust.yml/badge.svg
+[status-url]: https://github.com/david-wallace-croft/pattern-visitor/actions/workflows/rust.yml
 
 - Example Rust source code demonstrating the pattern "Visitor"
 
