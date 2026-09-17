@@ -1,7 +1,7 @@
+use super::super::element::Element;
 use super::super::element::circle_element::CircleElement;
 use super::super::element::point_element::PointElement;
 use super::super::element::square_element::SquareElement;
-use super::super::element::Element;
 
 pub trait ScaleElement: Element {
   fn scale(

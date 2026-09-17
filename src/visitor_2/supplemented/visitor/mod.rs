@@ -1,5 +1,5 @@
-use super::super::original::visitor::scale_visitor::ScaleVisitor;
 use super::super::original::visitor::Visitor as OriginalVisitor;
+use super::super::original::visitor::scale_visitor::ScaleVisitor;
 use super::element::hexagon_element::HexagonElement;
 
 pub mod visitor_acceptor;

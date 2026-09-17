@@ -1,5 +1,5 @@
-use super::element_accessor::ElementAccessor;
 use super::Element;
+use super::element_accessor::ElementAccessor;
 use ::std::cell::Cell;
 use ::std::fmt::{Debug, Display, Formatter, Result};
 

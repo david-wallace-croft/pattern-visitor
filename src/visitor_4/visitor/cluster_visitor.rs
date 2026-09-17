@@ -1,8 +1,8 @@
 use super::super::element::circle_element::CircleElement;
 use super::super::element::point_element::PointElement;
 use super::super::element::square_element::SquareElement;
-use super::visitor_element::VisitorElement;
 use super::Visitor;
+use super::visitor_element::VisitorElement;
 use ::std::cell::RefCell;
 use ::std::collections::VecDeque;
 use ::std::rc::Rc;
